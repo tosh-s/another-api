@@ -43,10 +43,6 @@ app.include_router(vote.router)
 #     published: bool = True
     ## rating: Optional[int] = None  ##later made optional after setting up postgres
 
-@app.get("/newposts")
-def get_newpost():
-    return {"data": "This is a new post"}
-
 
 try:
     conn=psycopg2.connect(host='localhost',database='fastapi',user='postgres',password='calgary',cursor_factory=RealDictCursor)
