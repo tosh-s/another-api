@@ -1,16 +1,12 @@
 from distutils.log import error
 from logging import raiseExceptions
-from multiprocessing import synchronize
 from typing import Optional, List
-from fastapi import FastAPI, Response, status, HTTPException, Depends
+from fastapi import FastAPI, Response, HTTPException, Depends
 from fastapi.params import Body
 from pydantic import BaseModel, validator, BaseSettings
-from random import randrange
 import psycopg2
 from psycopg2.extras import RealDictCursor 
-from . import models, schemas, utils 
 from .database import engine, get_db
-import time
 from sqlalchemy.orm import Session
 from .routers import post, user, auth, vote
 from .config import settings
@@ -44,10 +40,10 @@ app.include_router(vote.router)
     ## rating: Optional[int] = None  ##later made optional after setting up postgres
 
 
-try:
-    conn=psycopg2.connect(host='localhost',database='fastapi',user='postgres',password='calgary',cursor_factory=RealDictCursor)
-    cursor=conn.cursor()
-    print("database connection was successfull!")
-except Exception as error:
-    print("connecting to database failed")
-    print("Error:",error)
+# try:
+#     conn=psycopg2.connect(host='localhost',database='fastapi',user='postgres',password='calgary',cursor_factory=RealDictCursor)
+#     cursor=conn.cursor()
+#     print("database connection was successfull!")
+# except Exception as error:
+#     print("connecting to database failed")
+#     print("Error:",error)

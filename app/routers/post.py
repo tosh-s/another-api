@@ -1,5 +1,3 @@
-from pyexpat import model
-from orm import String
 from sqlalchemy import func
 from app import oauth2
 from .. import models, schemas
@@ -39,7 +37,7 @@ limit: int = 10, search: Optional[str]=""):
 #    print (results)
     return results
 
-@router.get("/newposts")
+@router.get("/newpost")
 def get_newpost():
     return {"data": "This is a new post"}
 
