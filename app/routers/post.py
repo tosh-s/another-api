@@ -37,9 +37,6 @@ limit: int = 10, search: Optional[str]=""):
 #    print (results)
     return results
 
-@router.get("/newpost")
-def get_newpost():
-    return {"data": "This is a new post"}
 
 
 

@@ -32,6 +32,10 @@ app.include_router(user.router)
 app.include_router(auth.router)
 app.include_router(vote.router)
 
+@app.get("/")
+def get_newpost():
+    return {"This site is under construction"}
+
 # Moved this code to schemas.py after ORM section
 # class Post(BaseModel):
 #     title: str
